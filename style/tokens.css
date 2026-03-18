@@ -1,0 +1,28 @@
+/* ─── Design tokens ─────────────────────────────────────────
+   stqn.tech / stan.boyet.me shared design system
+   Import this first, before any other stylesheet.
+──────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Colours */
+  --bg:           #F8FAFC;
+  --surface:      #FFFFFF;
+  --text:         #0F172A;
+  --text-muted:   #64748B;
+  --text-subtle:  #94A3B8;
+  --accent:       #2563EB;
+  --accent-tint:  #EFF6FF;
+  --border:       #E2E8F0;
+
+  /* Dark surface (used in dark sections) */
+  --dark-bg:      #0F172A;
+  --dark-surface: #1E293B;
+  --dark-border:  rgba(255,255,255,0.08);
+
+  /* Misc */
+  --radius: 6px;
+  --mono:   'JetBrains Mono', monospace;
+  --sans:   'Inter', sans-serif;
+}
