@@ -20,13 +20,13 @@ header nav a:hover { color: var(--brick); text-decoration-color: currentColor; }
 /* ─── Intro ──────────────────────────────────────── */
 .who { display: flex; gap: 1.375rem; align-items: center; margin-bottom: 2.25rem; }
 .photo {
-  flex: none; width: 88px; height: 88px; border-radius: 50%;
-  background: var(--mustard-soft); border: 2px solid var(--text);
-  display: grid; place-items: center; text-align: center;
-  font-size: 0.75rem; line-height: 1.2; color: var(--text);
+  flex: none; display: block; width: 88px; height: 88px; border-radius: 50%;
+  object-fit: cover; background: var(--mustard-soft); border: 2px solid var(--text);
   transition: transform 0.5s var(--ease);
 }
 .photo:hover { transform: rotate(-4deg) scale(1.03); }
+/* No hover on touch screens: the photo just sits at a slight tilt */
+@media (hover: none) { .photo { transform: rotate(-3deg); } }
 .who p { font-size: 1rem; line-height: 1.5; color: var(--muted); }
 .who strong { display: block; font-family: var(--head); font-size: 1.25rem; color: var(--text); font-weight: 700; letter-spacing: -0.01em; }
 
