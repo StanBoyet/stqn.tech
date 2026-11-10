@@ -17,7 +17,7 @@ a.name, a.fn-ref { background-image: none; }
 .name .tld { color: var(--brick); font-weight: 600; }
 header nav { display: flex; gap: 1.5rem; font-size: 1rem; font-weight: 500; }
 header nav a { color: var(--text); text-decoration-color: var(--rule); }
-header nav a:hover { color: var(--brick); text-decoration-color: currentColor; }
+header nav a:hover { text-decoration-color: currentColor; }
 
 /* ─── Intro ──────────────────────────────────────── */
 .who { display: flex; gap: 1.375rem; align-items: center; margin-bottom: 2.25rem; }
