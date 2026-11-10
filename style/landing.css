@@ -12,8 +12,6 @@ header .col { display: flex; justify-content: space-between; align-items: baseli
   color: var(--text); text-decoration: none; display: inline-flex; align-items: baseline;
 }
 .name:hover { color: var(--text); }
-/* No brush stroke on the wordmark or the footnote marker */
-a.name, a.fn-ref { background-image: none; }
 .name .tld { color: var(--brick); font-weight: 600; }
 header nav { display: flex; gap: 1.5rem; font-size: 1rem; font-weight: 500; }
 header nav a { color: var(--text); text-decoration-color: var(--rule); }

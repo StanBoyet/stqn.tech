@@ -24,14 +24,6 @@ a {
   text-underline-offset: 0.2em;
   transition: text-decoration-color 0.2s var(--ease);
 }
-/* Hover: a highlighter stroke brushed in from left to right, same band as the h1 mark */
-a:not(.btn) {
-  background-image: linear-gradient(transparent 58%, var(--mustard) 58%, var(--mustard) 94%, transparent 94%);
-  background-repeat: no-repeat; background-position: left; background-size: 0% 100%;
-  -webkit-box-decoration-break: clone; box-decoration-break: clone;
-  transition: text-decoration-color 0.2s var(--ease), background-size 0.45s var(--ease);
-}
-a:not(.btn):hover { background-size: 100% 100%; }
 
 :focus-visible { outline: 2px solid var(--brick); outline-offset: 3px; border-radius: 3px; }
 
