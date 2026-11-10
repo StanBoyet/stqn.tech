@@ -12,6 +12,8 @@ header .col { display: flex; justify-content: space-between; align-items: baseli
   color: var(--text); text-decoration: none; display: inline-flex; align-items: baseline;
 }
 .name:hover { color: var(--text); }
+/* No brush stroke on the wordmark or the footnote marker */
+a.name, a.fn-ref { background-image: none; }
 .name .tld { color: var(--brick); font-weight: 600; }
 header nav { display: flex; gap: 1.5rem; font-size: 1rem; font-weight: 500; }
 header nav a { color: var(--text); text-decoration-color: var(--rule); }
@@ -53,7 +55,8 @@ h1 .mark {
 .facts li { font-size: 0.9375rem; line-height: 1.45; color: var(--muted); }
 .facts b { display: block; font-family: var(--head); font-size: 2.5rem; font-weight: 800; color: var(--text); letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.25rem; font-variant-numeric: tabular-nums; }
 .facts code { font-family: var(--mono); font-size: 0.9375rem; font-weight: 500; color: var(--bg); background: var(--text); padding: 0.1rem 0.4rem; border-radius: 4px; }
-.facts .langs { display: flex; gap: 0.375rem; margin-bottom: 0.4rem; min-height: 2rem; align-items: center; }
+/* Same box as the numbers (2.5rem × 1.15 line-height), so the captions line up */
+.facts .langs { display: flex; gap: 0.375rem; margin-bottom: 0.25rem; height: 2.875rem; align-items: center; }
 
 /* ─── Sections ───────────────────────────────────── */
 section { margin-top: 4.5rem; }
@@ -90,34 +93,8 @@ h2 { font-family: var(--head); font-size: 2.125rem; font-weight: 800; letter-spa
 .roles .role { margin-bottom: 0.75rem; }
 .roles .company { display: block; font-family: var(--head); font-size: 1.375rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.015em; }
 .roles .title { display: inline-block; margin-top: 0.5rem; font-size: 0.875rem; font-weight: 600; color: var(--text); background: var(--mustard); padding: 0.1rem 0.55rem; border-radius: 999px; }
+.roles .now { margin-left: 0.5rem; font-size: 0.8125rem; font-weight: 500; color: var(--muted); font-style: italic; }
 .roles p { font-size: 1rem; line-height: 1.65; color: var(--body); }
-
-/* Thursday afternoon: a tiny test run beside the words */
-.thursday {
-  position: relative; white-space: nowrap; cursor: help;
-  text-decoration: underline dotted var(--faint); text-decoration-thickness: 1px; text-underline-offset: 0.25em;
-  border-radius: 3px;
-}
-.run {
-  --idle: #5B524A;
-  position: absolute; left: calc(100% + 0.5rem); top: 50%;
-  display: flex; gap: 5px; padding: 6px 8px;
-  background: var(--text); border-radius: 999px;
-  transform: translate(-4px, -50%); opacity: 0; pointer-events: none;
-  transition: opacity 0.25s var(--ease), transform 0.35s var(--ease);
-}
-.run i { width: 9px; height: 9px; border-radius: 50%; background: var(--idle); }
-.thursday:hover .run,
-.thursday:focus .run { opacity: 1; transform: translate(0, -50%); }
-.thursday:hover .run i,
-.thursday:focus .run i { animation: pass 0.3s var(--ease) forwards; }
-.thursday:hover .run i:nth-child(1), .thursday:focus .run i:nth-child(1) { animation-delay: 0.10s; }
-.thursday:hover .run i:nth-child(2), .thursday:focus .run i:nth-child(2) { animation-delay: 0.30s; }
-.thursday:hover .run i:nth-child(3), .thursday:focus .run i:nth-child(3) { animation-delay: 0.50s; }
-.thursday:hover .run i:nth-child(4), .thursday:focus .run i:nth-child(4) { animation-name: fail; animation-delay: 0.70s; }
-.thursday:hover .run i:nth-child(5), .thursday:focus .run i:nth-child(5) { animation-delay: 0.90s; }
-@keyframes pass { from { background: var(--idle); transform: scale(0.6); } to { background: var(--pass); transform: scale(1); } }
-@keyframes fail { from { background: var(--idle); transform: scale(0.6); } 60% { transform: scale(1.35); } to { background: var(--fail); transform: scale(1); } }
 
 /* ─── About ──────────────────────────────────────── */
 .about p { color: var(--body); }
@@ -148,6 +125,7 @@ h2 { font-family: var(--head); font-size: 2.125rem; font-weight: 800; letter-spa
 .contact p { color: var(--body); margin-bottom: 1.75rem; }
 .contact .ask { font-family: var(--head); font-size: 1.375rem; font-weight: 700; color: var(--text); margin: -0.5rem 0 0.75rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn-linkedin:hover { background: #0A66C2; }
 
 /* ─── Footer ─────────────────────────────────────── */
 footer .col { margin-top: 5.5rem; padding-bottom: 2.5rem; font-size: 0.875rem; color: var(--faint); }
@@ -184,9 +162,6 @@ footer .meta { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .grid3 > li { border-right: none; padding: 1.25rem; }
   .grid3 > li:last-child { border-bottom: none; }
 
-  .run { left: auto; right: 0; top: calc(100% + 0.35rem); transform: translate(0, -4px); }
-  .thursday:hover .run, .thursday:focus .run { transform: none; }
-
   /* Anchor the note to the paragraph, not the asterisk, so it never leaves the screen */
   .about p { position: relative; }
   .fn-ref { position: static; }
@@ -195,8 +170,6 @@ footer .meta { display: flex; flex-wrap: wrap; justify-content: space-between; g
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .thursday:hover .run i:not(:nth-child(4)), .thursday:focus .run i:not(:nth-child(4)) { background: var(--pass); }
-  .thursday:hover .run i:nth-child(4), .thursday:focus .run i:nth-child(4) { background: var(--fail); }
   .photo:hover { transform: none; }
   .harmed path { stroke-dashoffset: 0; opacity: 0; }
   .harmed:hover path, .harmed.is-drawn path { opacity: 1; }
